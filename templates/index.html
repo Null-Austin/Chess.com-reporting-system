@@ -31,9 +31,12 @@
     <body>
         <div>
             <form id='usernameinput'>
-                <input type='text' placeholder='Username'>
-                <input type='button' value='Show user'>
+                <input type='text' placeholder='Username' id="user">
+                <input type='button' value='Show user' onclick="redirectuser()">
             </form>
         </div>
     </body>
 </html>
+<script>function redirectuser(){
+    window.location.replace(document.getElementById('user').value);
+}</script>
