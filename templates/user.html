@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>{{username}} - Reports</title>
+        <style>
+            p{
+                color:white;
+            }
+            body{
+                background-color: rgb(33, 33, 33);
+            }
+            div{
+                background-color: rgb(47, 47, 47);
+                /*padding: 20px;/**/
+                align-content: center;
+                width: 50%;
+                margin: auto;
+                border-radius: 5px;
+                outline: 3px solid rgb(11, 45, 131);
+                box-shadow: 10px 10px 10px rgb(9, 36, 106);
+            }
+            .text {
+                background-color: rgb(47, 47, 47); /* Background color for the form */
+                /*padding: 20px; /* Padding for the form */
+                border-radius: 5px; /* Rounded corners for the form */
+                display: flex; /* Use flexbox for form elements */
+                flex-direction: column; /* Stack inputs vertically */
+                align-items: center; /* Center inputs horizontally */
+            }
+            .report {
+                color: red;
+                text-shadow: 1px 1px 1px rgb(160, 0, 0);
+                text-decoration: none;
+            }
+            .report:hover{
+                text-decoration: underline;
+            }
+            .text2{
+                text-align: center;
+                color: ghostwhite;
+            }
+            a:hover{
+                color: ghostwhite;
+                text-decoration: none;
+            }
+            a{
+                color: ghostwhite;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1 class="text2" id="username"><a href="https://www.chess.com/member/{{username}}">{{username}}'s Reports</a></h1>
+            <p class="text report" id="reportcount" style="text-shadow: 1px 1px 1px rgb(160, 0, 0);">REPORTS: {{reports}}</p>
+            
+        </div>
+    </body>
+    <footer><h1 class="text2 report" style="color: red; position:fixed;top: 90%;text-align: center;"><a style="color: red;"  id="reportbutton">Report user</a></h1></footer>
+</html>
+<script>
+    const reportscount = {{reports}};
+    if (reportscount == 0){;
+        document.getElementById('reportcount').innerText = 'No Active Reports.';
+    };
+    document.getElementById('reportbutton').href = window.location.href+'/report'
+</script>

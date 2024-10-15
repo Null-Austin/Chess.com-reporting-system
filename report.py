@@ -14,9 +14,20 @@ def write(filename, content):
         file.write(str(content))
     return f"Content written to {filename}."
 def report(username): #{'test1':1,'test2':2,'test3':3,'test4':4,'test5':5}
-    newdata=ast.literal_eval(read('reportedPlayers.txt'))#
-    olddata=newdata
-    newdata=ast.literal_eval(read('reportedPlayers.txt')).get(username)
-    newdata += 1
-    olddata[username] = newdata
-    write('reportedPlayers.txt',olddata)
+    if check.requestuser(username) == True:
+        olddata = ast.literal_eval(read('reportedPlayers.txt'))
+        newdata = olddata.get(username, 0)  # Get current data or default to 0
+
+        newdata += 1  # Increment the report count
+        olddata[username] = newdata  # Update the old data with the new count
+        write('reportedPlayers.txt', olddata)  # Write back to the file
+
+        return 'Report sent'
+    else:
+        return 'No such user found.'
+def getreports(username):
+    if ast.literal_eval(read('reportedPlayers.txt')).get(username) == None:
+        return(0)
+    else:
+        return(ast.literal_eval(read('reportedPlayers.txt')).get(username))
+print(getreports('test8'))

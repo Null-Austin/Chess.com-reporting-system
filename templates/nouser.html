@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Chess.com Reporter</title>
+        <style>
+            p{
+                color:white;
+            }
+            body{
+                background-color: rgb(33, 33, 33);
+            }
+            div{
+                background-color: rgb(47, 47, 47);
+                padding: 20px;
+                align-content: center;
+                width: 20%;
+                margin: auto;
+                border-radius: 5px;
+                outline: 3px solid rgb(11, 45, 131);
+                box-shadow: 10px 10px 10px rgb(9, 36, 106);
+            }
+            #usernameinput {
+                background-color: rgb(47, 47, 47); /* Background color for the form */
+                padding: 20px; /* Padding for the form */
+                border-radius: 5px; /* Rounded corners for the form */
+                display: flex; /* Use flexbox for form elements */
+                flex-direction: column; /* Stack inputs vertically */
+                align-items: center; /* Center inputs horizontally */
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form id='usernameinput'>
+                <p>Hey, We dont know how "{{username}}"<!-- please dont xss :_( --> is.</p>
+            </form>
+        </div>
+    </body>
+</html>
