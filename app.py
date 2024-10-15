@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    footer = open('templates/footer.html').read()
+    return html.index()
 
 
 @app.route('/<user>')
